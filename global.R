@@ -28,3 +28,9 @@ year_factor <- nobel_clean %>%
   select(year) %>% 
   mutate(year = as.factor(year))
 year_factor
+
+#nobel gender
+nobel_gender <- nobel_clean %>%
+  select(fullname,gender) %>% 
+  group_by(gender) %>% 
+  summarise(n_type = n())

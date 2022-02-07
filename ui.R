@@ -43,7 +43,10 @@ body <- dashboardBody(
             'January 2022 By Shafira R. Febriyanti '
           )
         ),
-        
+        # Projects, companies, and facilities value boxes
+        uiOutput("winner"),
+        uiOutput("male"),
+        uiOutput("female")
 
       )
     ),
@@ -51,7 +54,7 @@ body <- dashboardBody(
     tabItem(tabName = "top",
               
               fluidRow(
-                box(width = 12, title = "Choose year",
+                box(width = 12, height = 200, title = "Choose year",
                     status = "danger",
                     selectInput(inputId = "year",
                                 label = "Year list:",
@@ -87,8 +90,8 @@ body <- dashboardBody(
               tabPanel("Age",
                        fluidRow(
   
-                         column(width = 12,
-                                plotlyOutput(outputId = "plot3"))
+                         column(width = 12, height= 24,
+                                plotlyOutput(outputId = "plot3",height = 600))
                        )),
               
 

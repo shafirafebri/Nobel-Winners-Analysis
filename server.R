@@ -1,5 +1,38 @@
 function(input, output){
   options(scipen = 999)
+  # total
+  output$winner <- renderUI({
+    valueBox(
+      winner,
+      "Total Winner",
+      icon = icon("database"),
+      color = "red"
+    )
+  })
+  
+  # man
+  output$male <- renderUI({
+    valueBox(
+      male,
+      "Male",
+      icon = icon("male"),
+      color = "blue")
+  })
+  
+  # woman
+  output$female <- renderUI({
+    valueBox(
+      female,
+      "Female",
+      icon = icon("female"),
+      color = "purple")
+  })
+  
+  # Calculate the number of unique companies, projects, and facilities in database
+  
+  winner <- sum(nobel_gender$n_type)
+  male <- tail(nobel_gender$n_type,1)
+  female <- head(nobel_gender$n_type,1)
 
   
   output$plot1 <- renderPlotly({
